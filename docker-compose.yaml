@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  tinylicious:
+    image: dstanesc2/tinylicious:0.7.3
+    ports:
+      - "7070:7070"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /var/tmp
