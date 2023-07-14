@@ -30,3 +30,7 @@ docker rmi $(docker images -q)
 docker exec -it cid /bin/bash
 docker diff cid
 ```
+
+## Licenses
+
+Licensed under either [Apache 2.0](http://opensource.org/licenses/MIT) or [MIT](http://opensource.org/licenses/MIT) at your option.
