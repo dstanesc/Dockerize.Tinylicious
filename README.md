@@ -2,10 +2,14 @@
 
 Create a docker image for FluidFramework's lightweight relay - Tinylicious.
 
-## Build
+## Build, Push
+
+> Note: For usage build is technically not required. The `0.7.3` image is already built and pushed to [Docker Hub](https://hub.docker.com/r/dstanesc2/tinylicious).
 
 ```sh
 docker build -t dstanesc2/tinylicious .
+docker tag dstanesc2/tinylicious:latest dstanesc2/tinylicious:0.7.3
+docker push dstanesc2/tinylicious:0.7.3
 ```
 
 ## Run with docker
@@ -23,6 +27,7 @@ docker-compose kill
 ```
 
 ## Other
+
 ```sh
 docker stop $(docker ps -q)
 docker rm $(docker ps -a -q)

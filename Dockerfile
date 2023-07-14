@@ -11,7 +11,7 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 WORKDIR /tiny
 
 # Install Tinylicious globally
-RUN npm install -g tinylicious
+RUN npm install -g tinylicious@0.7.3
 
 # Copy the modified config.json into Tinylicious's root directory
 COPY config.json /home/node/.npm-global/lib/node_modules/tinylicious/config.json
