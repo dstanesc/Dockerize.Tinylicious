@@ -3,6 +3,7 @@ version: '3'
 services:
   tinylicious:
     image: dstanesc2/tinylicious:0.7.3
+    container_name: tinylicious
     ports:
       - "7070:7070"
     volumes:
