@@ -4,7 +4,7 @@ Create a docker image for FluidFramework's lightweight relay - Tinylicious.
 
 ## Build, Push
 
-> Note: For usage build is technically not required. The `0.7.3` image is already built and pushed to [Docker Hub](https://hub.docker.com/r/dstanesc2/tinylicious).
+> Note: To use the image, the build is technically not required. The `0.7.3` image is already built and pushed to [Docker Hub](https://hub.docker.com/r/dstanesc2/tinylicious).
 
 ```sh
 docker build -t dstanesc2/tinylicious .
@@ -38,7 +38,7 @@ docker diff cid
 
 ## Behavior
 
-When persistence is enabled (default for the provided docker image), a `git` and a `leveldb` database will store serialized summaries and confirmed operations.
+When persistence is enabled (the default setting for the provided docker image), a `git` and a `leveldb` database will store serialized summaries and confirmed operations.
 
 ```sh
 data/
@@ -66,16 +66,17 @@ data/
 
 ```
 
-In-flight (to be ordered) operations are stored in memory, hence they are lost when the `tinylicious` process is abruptly terminated (ie. `kill -9`, `docker-compose kill`, etc.). However graceful termination (ie. `kill -15`, `docker-compose down`, etc.) will allow the process to flush the in-memory operations.
+In-flight (being ordered and not yet confirmed) operations are stored in memory, hence they are lost when the `tinylicious` process is abruptly terminated (ie. `kill -9`, `docker-compose kill`, etc.). However graceful termination (ie. `kill -15`, `docker-compose down`, etc.) will allow the process to confirm and flush the in-memory operations to the disk.
 
-`docker-compose down`
+Example `docker-compose down` behavior.
 
 ![compose down](./img/compose-down.gif)
 
-`docker-compose kill`
+Example `docker-compose kill` behavior.
 
 ![compose kill](./img/compose-kill.gif)
 
+See also [shared-tree-map library](https://github.com/dstanesc/shared-tree-map), [shared-tree-map hello world](https://github.com/dstanesc/shared-tree-map-hello), [shared-tree-map sync library](https://github.com/dstanesc/shared-tree-map-sync) for more details on testing.
 
 ## Licenses
 
